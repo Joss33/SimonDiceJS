@@ -1,6 +1,12 @@
-var nombre = 'Jose';
-var apellido = 'Acevedo'
+var nombre = 'Jose',
+  apellido = 'Acevedo'
 
-console.log('Hola ' + nombre + ' ' + apellido)
+var nombreEnMayusculas = nombre.toUpperCase()
+var apellidoEnMinusculas = apellido.toLowerCase()
 
-// console.log("Hola Mundo Js")
+var primeraLetraDelNombre = nombre.charAt(0)
+var cantidaDeLetrasDelNombre = nombre.length
+
+var nombreCompleto = `${nombre} ${apellido.toUpperCase()}`
+
+var str = nombre.substr(1, 2)
