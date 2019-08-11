@@ -1,33 +1,50 @@
 var jose = {
-  nombre: 'Jose',
-  apellido: 'Acevedo',
-  edad: 19
-}
+  nombre: "Jose",
+  apellido: "Acevedo",
+  edad: 19,
+  ingeniero: false,
+  cantante: false,
+  cocinero: true,
+  guitarrista: false
+};
 
 var ana = {
-  nombre: 'Ana',
-  apellido: 'Escorcia',
-  edad: 18
+  nombre: "Ana",
+  apellido: "Escorcia",
+  edad: 18,
+  ingeniero: false,
+  cocinero: true
+};
+
+function imprimirProfesiones(persona) {
+  console.log(`${persona.nombre} es: `);
+  if (persona.ingeniero) {
+    console.log("Ingeniero");
+  }
+
+  if (persona.cantante) {
+    console.log("cantante");
+  }
+
+  if (persona.Cocinero) {
+    console.log("cocinero");
+  }
+
+  if (persona.guitarrista) {
+    console.log("Guitarrista");
+  }
 }
 
-function imprimirNombreEnMayusculas(persona) {
-  // var nombre = persona.nombre
-  var {
-    nombre
-  } = persona
+const MAYORIA_DE_EDAD = 18;
 
-  console.log(nombre.toUpperCase())
+function esMayorDeEdad(persona) {
+  return persona.edad >= MAYORIA_DE_EDAD;
 }
 
-imprimirNombreEnMayusculas(jose)
-imprimirNombreEnMayusculas(ana)
-
-function imprimirNombreYEdad(persona) {
-  var {
-    nombre,
-    edad
-  } = persona
-  console.log(`Hola mi nombre es ${nombre} y mi edad es ${edad}`)
+function imprimirSiEsMayorDeEdad(persona) {
+  if (esMayorDeEdad(persona)) {
+    console.log(`${persona.nombre} es mayor de edad`);
+  } else {
+    console.log(`${persona.nombre} es menor de edad`);
+  }
 }
-
-imprimirNombreYEdad(jose)
