@@ -1,8 +1,20 @@
-var nombre = 'Jose'
-
-function imprimirNombreEnMayusculas(nombre) {
-  nombre = nombre.toUpperCase()
-  console.log(nombre)
+var jose = {
+  nombre: 'Jose',
+  apellido: 'Acevedo',
+  edad: 19
 }
 
-imprimirNombreEnMayusculas(nombre)
+var ana = {
+  nombre: 'Ana',
+  apellido: 'Escorcia',
+  edad: 18
+}
+
+function imprimirNombreEnMayusculas({
+  nombre
+}) {
+  console.log(nombre.toUpperCase())
+}
+
+imprimirNombreEnMayusculas(jose)
+imprimirNombreEnMayusculas(ana)
