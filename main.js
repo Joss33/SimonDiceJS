@@ -2,54 +2,29 @@ var jose = {
   nombre: "Jose",
   apellido: "Acevedo",
   edad: 19,
-  ingeniero: false,
-  cantante: false,
-  cocinero: true,
-  guitarrista: false
+  peso: 75
 };
 
-var ana = {
-  nombre: "Ana",
-  apellido: "Escorcia",
-  edad: 18,
-  ingeniero: false,
-  cocinero: true
-};
+console.log(`Al inicio del año ${jose.nombre} pesa ${jose.peso}Kg`);
 
-function imprimirProfesiones(persona) {
-  console.log(`${persona.nombre} es: `);
-  if (persona.ingeniero) {
-    console.log("Ingeniero");
-  }
+// function aumentarDePeso(persona){
+//   return persona.peso += 200
+// }
 
-  if (persona.cantante) {
-    console.log("cantante");
-  }
+const INCREMENTO_DE_PESO = 200;
+const DIAS_DEL_ANO = 365;
 
-  if (persona.Cocinero) {
-    console.log("cocinero");
-  }
+const aumentarDePeso = persona => (persona.peso += INCREMENTO_DE_PESO);
+const adelgazar = persona => (persona.peso -= INCREMENTO_DE_PESO);
 
-  if (persona.guitarrista) {
-    console.log("Guitarrista");
-  }
-}
+for (var i = 1; i <= DIAS_DEL_ANO; i++) {
+  var random = Math.random();
 
-const MAYORIA_DE_EDAD = 18;
-
-// Arrow Function
-const esMayorDeEdad = persona => persona.edad >= MAYORIA_DE_EDAD;
-
-function imprimirSiEsMayorDeEdad(persona) {
-  if (esMayorDeEdad(persona)) {
-    console.log(`${persona.nombre} es mayor de edad`);
-  } else {
-    console.log(`${persona.nombre} es menor de edad`);
-  }
-}
-
-function permitirAcceso(persona) {
-  if (!esMayorDeEdad(persona)) {
-    console.log("Acceso Denegado");
+  if (random < 0.25) {
+    aumentarDePeso(jose);
+    // Aumentar de peso
+  } else if (random < 0.5) {
+    adelgazar(jose);
+    // adelgazar
   }
 }
