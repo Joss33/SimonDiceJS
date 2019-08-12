@@ -1,13 +1,15 @@
-var contador = 0;
+var signo = prompt("Cual es tu signo zodiacal");
 
-const lueve = () => Math.random() < 0.25;
+switch (signo) {
+  case "acuario":
+    console.log("acuario");
+    break;
 
-do {
-  contador++;
-} while (!llueve());
+  case "piscis":
+    console.log("acuario");
+    break;
 
-if (contador > 1) {
-  console.log(`Fui a ver si llovia ${contador} veces`);
-} else {
-  console.log(`Fui a ver si llovia ${contador} vez`);
+  case "sagitario":
+    console.log("sagitario");
+    break;
 }
