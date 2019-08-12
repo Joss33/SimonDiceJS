@@ -1,36 +1,13 @@
-var jose = {
-  nombre: "Jose",
-  apellido: "Acevedo",
-  edad: 19,
-  peso: 75
-};
+var contador = 0;
 
-console.log(`Al inicio del año ${jose.nombre} pesa ${jose.peso}Kg`);
+const lueve = () => Math.random() < 0.25;
 
-// function aumentarDePeso(persona){
-//   return persona.peso += 200
-// }
+do {
+  contador++;
+} while (!llueve());
 
-const INCREMENTO_DE_PESO = 200;
-const DIAS_DEL_ANO = 365;
-
-const aumentarDePeso = persona => (persona.peso += INCREMENTO_DE_PESO);
-const adelgazar = persona => (persona.peso -= INCREMENTO_DE_PESO);
-const comeMucho = () => Math.random() < 0.3;
-const realizaDeporte = () => Math.random() < 0.4;
-
-const META = jose.peso - 3;
-var dias = 0;
-
-while (jose.peso > META) {
-  // debugger;
-  if (comeMucho) {
-    aumentarDePeso(jose);
-  }
-
-  if (realizaDeporte()) {
-    adelgazar(jose);
-  }
+if (contador > 1) {
+  console.log(`Fui a ver si llovia ${contador} veces`);
+} else {
+  console.log(`Fui a ver si llovia ${contador} vez`);
 }
-
-console.log(`Al final del año ${jose.nombre} pesa ${jose.peso}Kg`);
