@@ -16,15 +16,21 @@ const DIAS_DEL_ANO = 365;
 
 const aumentarDePeso = persona => (persona.peso += INCREMENTO_DE_PESO);
 const adelgazar = persona => (persona.peso -= INCREMENTO_DE_PESO);
+const comeMucho = () => Math.random() < 0.3;
+const realizaDeporte = () => Math.random() < 0.4;
 
-for (var i = 1; i <= DIAS_DEL_ANO; i++) {
-  var random = Math.random();
+const META = jose.peso - 3;
+var dias = 0;
 
-  if (random < 0.25) {
+while (jose.peso > META) {
+  // debugger;
+  if (comeMucho) {
     aumentarDePeso(jose);
-    // Aumentar de peso
-  } else if (random < 0.5) {
+  }
+
+  if (realizaDeporte()) {
     adelgazar(jose);
-    // adelgazar
   }
 }
+
+console.log(`Al final del año ${jose.nombre} pesa ${jose.peso}Kg`);
