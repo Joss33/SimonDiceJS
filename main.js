@@ -1,15 +1,42 @@
-var signo = prompt("Cual es tu signo zodiacal");
+var sasha = {
+  nombre: "Sasha",
+  apellido: "Lifszyc",
+  altura: 1.72
+};
 
-switch (signo) {
-  case "acuario":
-    console.log("acuario");
-    break;
+var alan = {
+  nombre: "Alan",
+  apellido: "Perez",
+  altura: 1.86
+};
 
-  case "piscis":
-    console.log("acuario");
-    break;
+var martin = {
+  nombre: "Martin",
+  apellido: "Gomez",
+  altura: 1.85
+};
 
-  case "sagitario":
-    console.log("sagitario");
-    break;
+var dario = {
+  nombre: "Dario",
+  apellido: "Ruiz",
+  altura: 1.71
+};
+
+var vicky = {
+  nombre: "Vicky",
+  apellido: "Zapata",
+  altura: 1.56
+};
+
+var paula = {
+  nombre: "Paula",
+  apellido: "Barros",
+  altura: 1.76
+};
+
+var personas = [sasha, alan, martin, dario, vicky, paula];
+
+for (var i = 0; i < personas.length; i++) {
+  var persona = persona[i];
+  console.log(`${persona.nombre} mide ${persona.altura}mts`);
 }
