@@ -1,3 +1,9 @@
+function heredaDe(prototipoHijo, prototipoPadre) {
+  var fn = function() {};
+  fn.prototype = prototipoPadre.prototype;
+  prototipoHijo.prototype = new fn();
+  prototipoHijo.prototype.constructor = prototipoHijo;
+}
 function Persona(nombre, apellido, altura) {
   this.nombre = nombre;
   this.apellido = apellido;
@@ -12,12 +18,18 @@ Persona.prototype.soyAlto = function() {
   return this.altura > 1.8;
 };
 
-var jose = new Persona("jose", "Acevedo", 1.7);
-var erika = new Persona("Erika", "Luna", 1.9);
-var ana = new Persona("Ana", "Escorcia", 1.95);
+function Desarrollador(nombre, apellido) {
+  this.nombre = nombre;
+  this.apellido = apellido;
+}
+heredaDe(Desarrollador, Persona);
 
-jose.saludar();
+Desarrollador.prototype.saludar = function() {
+  console.log(
+    `Hola, me llamo ${this.nombre} ${this.apellido} y soy desarrolador/a`
+  );
+};
 
-jose.soyAlto();
-erika.soyAlto();
-ana.soyAlto();
+// var jose = new Persona("jose", "Acevedo", 1.7);
+// var erika = new Persona("Erika", "Luna", 1.9);
+// var ana = new Desarrollador("Ana", "Escorcia", 1.95);
