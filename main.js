@@ -1,48 +1,22 @@
-class Persona {
-  constructor(nombre, apellido, altura) {
-    this.nombre = nombre;
-    this.apellido = apellido;
-    this.altura = altura;
-  }
-  saludar(fn) {
-    var { nombre, apellido } = this;
-    console.log(`Hola, me llamo ${nombre} ${apellido}`);
-    if (fn) {
-      fn(nombre, apellido);
-    }
-  }
-  soyAlto() {
-    return this.altura > 1.8;
-  }
+const API_URL = "https://swapi.co/api/";
+const PEOPLE_URL = "people/:id";
+const opts = { crossDomain: true };
+
+function obtenerPersonaje(id) {
+  return new Promise((resolve, reject) => {
+    const url = `${API_URL}${PEOPLE_URL.replace(":id", id)}`;
+    $.get(url, opts, function(data) {
+      resolve(data);
+    }).fail(() => reject(id));
+  });
 }
 
-class Desarrollador extends Persona {
-  constructor(nombre, apellido, altura) {
-    super(nombre, apellido, altura);
-    // this.nombre = nombre;
-    // this.apellido = apellido;
-    // this.altura = altura;
-  }
-  saludar(fn) {
-    var { nombre, apellido } = this;
-    console.log(`Hola, me llamo ${nombre} ${apellido} y soy desarrolador/a`);
-    if (fn) {
-      fn(nombre, apellido, true);
-    }
-  }
+function onError(id) {
+  console.log(`sucedio u error al obtener el personaje ${id}`);
 }
 
-function responderSaludo(nombre, apellido, esDev) {
-  console.log(`Buen dia ${nombre} ${apellido}`);
-  if (esDev) {
-    console.log(`Ah mira, no sabia que eras Desarrollador/a`);
-  }
-}
-
-var jose = new Desarrollador("jose", "Acevedo", 1.7);
-var erika = new Persona("Erika", "Luna", 1.9);
-var ana = new Desarrollador("Ana", "Escorcia", 1.95);
-
-jose.saludar(responderSaludo);
-erika.saludar(responderSaludo);
-ana.saludar(responderSaludo);
+obtenerPersonaje(1)
+  .then(function(personaje) {
+    console.log(`El personaje 1 es ${personaje.name}`);
+  })
+  .catch(onError);
